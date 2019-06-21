@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1px solid" width="100%">
+
+        <script>
+            let row =2,
+                // 幾排
+                start = 2,
+                // 從2開始
+                ntd = 3
+            // 一排幾個
+
+
+            for (let k = 0; k < row; k++) {
+                document.write('<tr>');
+                for (let j = start; j < (start + ntd); j++) {
+
+                    
+                    let newJ = j + k * ntd
+                    let isPink
+                    if(ntd%2===0) {
+                        isPink = (newJ+k)%2 ==0
+                    }else{
+                        isPink = newJ %2 ==0
+                    }
+                        if(isPink){
+                            document.write('<td bgcolor="pink">')
+                        }else {
+                            document.write('<td bgcolor="orange">')
+                        }
+
+
+
+
+                    for (let i = 1; i < 10; i++) {
+                     
+                        let r = newJ * i
+                        // newJ
+                        document.write(`${newJ} x ${i} = ${r}<br>`)
+
+                    }
+                    document.write('</td>')
+
+                }
+                document.write('</tr>')
+            }
+        </script>
+    </table>
+</body>
+
+</html>

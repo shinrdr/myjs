@@ -1,0 +1,50 @@
+<select name="textAlign" id="op" onchange="cnAlign()">
+    <option value="">default</option>
+    <option value="right">right</option>
+    <option value="left">left</option>
+    <option value="center">center</option>
+
+</select>
+<button value="test" onclick="test()">test</button>
+<div id="mytext" style="text-align: center">
+    Hello World
+</div>
+
+<script>
+    function cnAlign() {
+        let mytext = document.getElementById('mytext');
+        let op = document.getElementById('op')
+        mytext.style[op.name] = op.value
+
+    }
+
+    let hr = document.createElement('hr')
+    document.body.appendChild(hr)
+
+    let ul = document.createElement('ul')
+   
+    document.body.appendChild(ul)
+    
+    let tempLi ;
+    // 用來存放
+    for(let i= 1;i<=3;i++) {
+        let li = document.createElement('li') //迴圈每次產生li，脫離迴圈後結束生命週期
+        ul.appendChild(li)   
+        li.innerHTML = i    
+        if(i==2) {
+            tempLi = li
+        }
+    }
+    ul.removeChild(tempLi)
+    let hr2 = hr.cloneNode()
+    document.body.appendChild(hr2)
+    
+    let ul2 = ul.cloneNode()  //不會連li整包複製，只有複製節點
+
+    
+
+    
+
+
+
+</script>

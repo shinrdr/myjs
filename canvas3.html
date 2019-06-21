@@ -1,0 +1,75 @@
+<!-- <button onclick='addBall()'>新增球</button> -->
+
+<canvas id='canvas' width="620" height="480" style='border:1px solid'>
+
+    <script>
+        let ctx = canvas.getContext("2d");
+        // 背景圖
+        let bg = new Image()
+        bg.src = 'img/w.jpg'
+        // 外部圖檔
+        let ball1 = new Image()
+        let ball2 = new Image()
+        let ball3 = new Image()
+        // 球種 存成陣列
+        let ballImg = [ball1, ball2, ball3]
+        // 球的實體物件 存成陣列
+        let balls = []
+
+        // 載入影像資料
+        bg.onload = function () {
+            ctx.drawImage(bg, 0, 0)
+            ball1.src = 'img/ball.png'
+            ball2.src = 'img/ball2.png'
+            ball3.src = 'img/ball3.png'
+        }
+
+        // FPS 更新畫面頻率，重新繪製
+        function refreshView() {
+            // 背景更新
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.drawImage(bg, 0, 0)
+
+            // 任何時候想看到的
+            for (let i = 0; i < balls.length; i++) {
+                let arr = ['1', '2', '3']
+                ctx.drawImage(ballImg[balls[i].img], balls[i].x, balls[i].y) // 新增多個球，balls陣列的球各自有x,y
+            }
+            // ctx.drawImage(ball, ballX, ballY)  原始新增球的做法
+        }
+        // setInterval的啟動方法，用迴圈產生球
+        function go() {
+            for (let i = 0; i < balls.length; i++) {
+                moveBall(balls[i])
+            }
+        }
+        // 球移動
+        function moveBall(obj) {
+
+            if (obj.x < 0 || obj.x + 48 > canvas.width) {
+                obj.dx *= -1
+            }
+            if (obj.y < 0 || obj.y + 48 > canvas.height) {
+                obj.dy *= -1
+            }
+            obj.x += obj.dx
+            obj.y += obj.dy
+        }
+
+        // 點下去的事件: 將定義的球新增到陣列
+        canvas.onmousedown = function (e) {
+            let ballObj = {
+                x: e.offsetX - 24,
+                y: e.offsetY - 24,
+                dx: Math.random() * 20,
+                dy: Math.random() * 20,
+                img: parseInt(Math.random() * 3)
+
+            }
+            // 按下去就會將新球存放在balls陣列中
+            balls.push(ballObj)
+
+        }
+        setInterval(refreshView, 30);
+        setInterval(go, 60)
+    </script>

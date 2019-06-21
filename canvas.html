@@ -1,0 +1,40 @@
+<h1 id="head"></h1>
+<button onclick="clearCanvas()">Clear</button>
+<hr>
+<canvas id='canvas' width="620" height="480" style='border:1px solid'>
+</canvas>
+<script>
+    head.innerHTML = 'CANVAS'
+    let ctx = canvas.getContext("2d"); //取得繪圖內容，render環境(畫布)
+
+    let isDrag = false; // 是否為點擊狀態
+
+    canvas.onmouseup = function (e) {
+        isDrag = false
+
+    }
+    canvas.onmousedown = function (e) {
+        isDrag = true
+        let x = e.offsetX;
+        let y = e.offsetY;
+
+        ctx.strokeStyle = 'blue'
+        ctx.beginPath()
+        ctx.moveTo(x, y)
+    }
+
+    canvas.onmousemove = function (e) {
+        if (isDrag) {
+            let x = e.offsetX;
+            let y = e.offsetY;
+            ctx.lineTo(x, y);
+            ctx.stroke()
+
+        }
+
+    }
+
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
+</script>

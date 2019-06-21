@@ -1,0 +1,15 @@
+<script>
+    let id = 'hah@gmail.com'
+
+    let regex = /^09[0-9]{2}-[0-9]{6}$/g
+    
+    let result =id.match(regex)
+
+    if(result ==null ) {
+        document.write('none')
+    }else{
+        for(let v of result) {
+            document.write(v+'<br>')
+        }
+    }
+</script>

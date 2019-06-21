@@ -1,0 +1,18 @@
+<script>
+let person = {
+    name:"A",
+    age: 20,
+    getInfo: function() {
+       return this.name + " : " + this.age
+    }
+}
+// person有個getInfo方法
+
+let man= {
+    name:"B",
+    age: 22
+}
+
+console.log(person.getInfo.call(man))
+
+</script>

@@ -1,0 +1,18 @@
+<script>
+    let p = [0,0,0,0,0,0,0,0,0]
+
+    //跑100次，隨機給p[num]累加，num為0~5剛好對應到p的Index
+    for(let i=0 ;i<100;i++) {
+        let num = parseInt(Math.random()*9)
+        
+        // 如果大於6點，就扣3 --> 7-3=4，4~6的機率就變大
+        p[num<=5 ? num:num-3]++
+        
+    }
+    // 標出前面的數字 i ，i+1才是骰子的數字
+    for(let i =0; i<p.length; i++) {
+        document.write(`${i+1}:${p[i]}<br>`)
+    }
+
+
+</script>

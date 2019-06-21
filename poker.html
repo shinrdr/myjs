@@ -1,0 +1,43 @@
+<script>
+    Array.prototype.reduce = function(init, f) {
+    var value = init;
+    for(var i = 0; i < this.length; i++) {
+        value = f(value, this[i]);
+    }
+    return value;
+};
+
+function range(from, to) {
+    var r = [];
+    for(var c = 0, i = from; i < to; c++, i++) { r[i] = i; } 
+    return r;
+}
+
+function iterate(counter, primes) {
+    if(counter < primes.length) {
+        var newps = primes.slice(0, counter + 1).concat(
+                primes.slice(counter + 1, primes.length)
+                      .filter(function(p) { 
+                          return p % primes[counter] != 0; 
+                      }));
+        return iterate(counter + 1, newps);
+    } else {
+        return primes;
+    }
+}
+
+function create(max) {
+    var comp = range(1, parseInt((max - 5) / 6) + 1).map(function(i) {
+        return [6 * i + 1, 6 * i + 5];
+    }).reduce([], function(ac, list) {
+        return ac.concat(list);
+    });
+    var last = comp.pop();
+    var primes = [2, 3, 5].concat(
+            comp, last + 2 <= max ? [last, last + 2] : [last]);
+    return iterate(2, primes);
+}
+
+console.log(create(1000).join(' '));
+
+</script>

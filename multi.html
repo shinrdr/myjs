@@ -1,0 +1,27 @@
+<script>
+    let body = document.createElement('body')
+    document.body = body
+    let hr = document.createElement('hr')
+    let table = document.createElement('table')
+    let tr = document.createElement('tr')
+
+    body.appendChild(table)
+    table.width = '200'
+    table.setAttribute('border', '1')
+    table.setAttribute('width', '100%    ')
+    table.appendChild(tr)
+
+    for(let k=0;k<2;k++){
+        for (let i = 2; i < 6; i++) {
+            let td = document.createElement('td')
+
+            tr.appendChild(td)
+            let newi = i+k*4
+            for (let j = 1; j < 10; j++) {
+                td.innerHTML += `${newi} x ${j} = ${newi*j} <br>`
+            }
+        }
+    
+    }
+
+</script>

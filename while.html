@@ -1,0 +1,20 @@
+<script>
+    
+    function calcSum() {
+        let n = document.getElementById('n').value;
+        let i = 1
+        let sum = 0
+
+        while(i<=n) {
+            sum+= i++
+        }
+        document.getElementById('result').innerHTML = sum
+        
+
+    } 
+</script>
+1+2+3+...+ 
+<input type="text" id="n">
+<input type="button" value='=' onclick="calcSum()">
+
+<span id="result"></span>

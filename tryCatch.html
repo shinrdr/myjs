@@ -1,0 +1,35 @@
+<script>
+function test1() {  
+    let n = parseInt(Math.random()*101)
+    document.write(n+'<br>')
+    try {
+        // 沒事
+        test2(n)
+        document.write('process OK'+"<br>")
+
+    }catch(e){
+        // 捕捉到例外
+
+    }finally{
+        // 不管有沒有錯誤，一定要執行的部分，當前面有return也會執行到
+
+
+    }
+    // 外面的部分，不管有沒有錯誤都會執行到這，當try/catch中有return，就不會跑到這裡
+    document.write('test here')
+
+}
+ 
+function test2(a) {
+    if(a>=60) {
+        document.write('test2 OK<br>')
+    }
+    else {
+        throw 'error!'
+    }
+
+}
+
+</script>
+
+<input type="button" value="test" onclick="test1()">
