@@ -1,0 +1,37 @@
+<script src="apitest.js"></script>
+<form action="test1.php" id="myForm" onsubmit="gotoBackend()">
+    *Account : <input type="text" id="account"><br>
+    *Password1 : <input type="password" id="password1" onblur="checkPasswd()"><br>
+    *Password2 : <input type="password" id="password2" onblur="checkPasswd()"><br>
+    *ID : <input type="text" id="twid"><br>
+    Memo : <textarea id="memo"></textarea> <br>
+
+    <input type="submit" value="註冊">
+
+
+
+</form>
+
+<script>
+    function gotoBackend() {
+        let account = document.getElementById('account').value
+        let password1 = document.getElementById('password1').value
+        let password2 = document.getElementById('password2').value
+        let twid = document.getElementById('twid').value
+
+
+        let ret = true
+        return ret
+
+    }
+
+    function checkPasswd() {
+        let password1 = document.getElementById('password1').value
+        let password2 = document.getElementById('password2').value
+        if (password1.length > 0 && password2.length > 0) {
+            if (password1 != password2) {
+                alert('not same')
+            }
+        }
+    }
+</script>

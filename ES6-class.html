@@ -1,0 +1,61 @@
+<script>
+class Bike {
+    constructor(speed) {
+        this.speed = speed
+        this.name = ''
+        console.log('new Bike')
+    }
+
+    upSpeed() {
+        this.speed += 1.2
+    }
+
+    static m1() {
+        console.log("this is a static")
+    }
+}
+
+class Scooter extends Bike{
+    constructor(speed,gear) {
+        // 建構適中 一定要呼叫父類別的建構式，而且在自己的建構式呼叫this前也要叫，子類別之所以存在，因為父類別先存在有所依據
+        // 有super()之後，才會得到父類別的方法
+        super(speed)
+        console.log("new Scooter")
+        this.speed = speed
+        this.gear = gear
+        
+    }
+
+    getGear(gear) {
+        console.log(this.gear)
+    }
+
+    upSpeed(){
+        this.speed = this.speed*2
+    }
+}
+
+let s1 = new Scooter(23,4)
+s1.getGear()
+s1.upSpeed()
+console.log(s1.speed)
+
+
+// s1是否屬於機車類 -> true
+// s1是否屬於Bike類 -> true
+console.log(s1 instanceof Scooter)
+console.log(s1 instanceof Bike)
+
+console.log(Scooter.m1())
+
+
+
+
+
+
+
+
+
+
+
+</script>

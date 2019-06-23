@@ -1,0 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<p id="a">aaaa</p>
+<button >click</button>
+
+<script>
+    $("button").click(function () {
+        $(this).attr('disabled','disabled')
+        setInterval(open,3000)
+        $("#a").text('changed')
+    })
+    function open() {
+        $("button").attr('disabled',false)
+    }
+    
+</script>

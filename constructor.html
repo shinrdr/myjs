@@ -1,0 +1,16 @@
+<script>
+let f = function () {
+    this.a = 1 
+    this.b = 2
+}
+
+let obj = new f()
+
+console.log(obj.b)
+
+// 物件的原型屬性會被覆蓋
+f.prototype.b = 3
+
+
+
+</script>

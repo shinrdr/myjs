@@ -1,0 +1,12 @@
+<p> 現在<span id="day"></span> </p>
+<script src="apitest.js"></script>
+<script>
+    let time = new Date()
+    let day = document.getElementById('day')
+
+
+
+    let timer = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds()
+
+    day.innerHTML = time.getCYear()
+</script>

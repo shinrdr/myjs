@@ -1,4 +1,24 @@
-var canvas = document.getElementById("myCanvas");
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Gamedev Canvas Workshop</title>
+  <style>
+    canvas {
+      border: 5px solid black; 
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="myCanvas" width="620" height="480"></canvas>
+
+  <script>
+    var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     // 球的起始座標
     let x = canvas.width / 2;
@@ -160,3 +180,8 @@ var canvas = document.getElementById("myCanvas");
 
     // 重新繪製的頻率
     setInterval(move, 10)
+  </script>
+
+</body>
+
+</html>

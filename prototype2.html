@@ -1,0 +1,56 @@
+<script src = 'apitest.js'></script>
+<script>
+// 建構式 2 
+
+let bike = {
+    speed: 50,
+    cost: 100,
+    getSpeed: function() {
+        console.log(this.speed)
+    }
+}
+
+let person = {
+    name: '',
+    myBike: Object.assign({},bike)  // 問題在這，這裡不是新增物件，所以物件是共用
+}
+
+// let b1= Object.create(bike);
+
+// for (let k in b1) {
+//     console.log(`${k}:${b1[k]}`)
+// }
+
+
+// 當一個物件的屬性也是一個物件的情況，會發生物件共用
+let p1 = clone(person)
+
+p1.name = 'god'
+p1.myBike.speed = 305;
+
+
+let p2 = clone(person)
+p2.name = 'devil'
+p2.myBike.cost = 400
+
+let p3 = clone(person)
+p3.name = 'LLL'
+p3.myBike.cost = 100000,
+
+console.log(p1.name)
+console.log(p1.myBike.speed)
+
+console.log(p1.myBike.cost)
+console.log(p2.name)
+console.log(p2.myBike.speed)
+console.log(p2.myBike.cost)
+console.log('---------------')
+console.log(p3.name)
+console.log(p3.myBike.speed)
+console.log(p3.myBike.cost)
+
+console.log(p1.myBike == p2.myBike)
+console.log(p2.myBike==p3.myBike)
+console.log(p1.myBike==p3.myBike)
+
+</script>
